@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/images/todolist.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="app">
+            <h2 class="title">To-Do List <img src="{{ url_for('static', filename='images/checklist.png') }}" width="25"></h2>
+            <div class="rows">
+                <input type="text" id="text" placeholder="Enter task here:">
+                <button onclick="addTasks()">Add</button>
+                
+            </div>
+            <div class="tasks">
+                <ul id="tasks">
+                
+                </ul>
+                
+            </div>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <script src="/static/index.js"></script>
+</body>
+</html>

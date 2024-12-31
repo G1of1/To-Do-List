@@ -1,4 +1,5 @@
 const list = document.getElementById('tasks');
+//Fetches the tasks from the database using the Flask. When user opens browser all the tasks will be displayed to the webpage
 async function fetchTasks()
 {
     try
@@ -38,7 +39,7 @@ async function fetchTasks()
         document.getElementById('error-message').textContent = "Error fetching tasks: " + error;
     }
 }
-
+//Adds the tasks to the webpage as well as the database
 async function addTasks()
 {
     const name = document.getElementById('text').value.trim();
@@ -62,7 +63,7 @@ async function addTasks()
         document.getElementById('error-message').textContent = "Error adding tasks: " + error;
     }
 }
-
+//Removes tasks from the webpage as well as the database
 async function removeTasks(taskName)
 {
     if (!taskName) 
@@ -88,6 +89,7 @@ async function removeTasks(taskName)
         document.getElementById('error-message').textContent = "Failed to remove task";
     }
 }
+//Event listener for the list items on the webpage. It will checkmark the items on the webpage when the user clicks on the tasks. If the users clicks on the 'x' mark, the task will get deleted.
 list.addEventListener('click', function(event)
 {
     if(event.target.tagName === "LI")
@@ -101,7 +103,7 @@ list.addEventListener('click', function(event)
         removeTasks(taskName);
     }
 });
-
+//Updates the datbase with the checked tasks so that when a user re-enters the webpage, the checked and unchecked tasks are shown.
 function updateCheckedTasks()
 {
     const checkedTasks = Array.from(document.querySelectorAll("#tasks li.checked")).map(li =>li.dataset.name);

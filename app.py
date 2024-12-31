@@ -12,7 +12,7 @@ def index():
     return render_template('index.html')
 
 
-
+#----HANDLING OF TASKS----#
 @app.route('/tasks', methods =['GET', 'POST'])
 def handle_list():
     if request.method == 'GET':
@@ -31,7 +31,7 @@ def handle_list():
         except Exception as e:
             return jsonify({"error": str(e)}), 500
 
-
+#---DELETION OF TASKS---#
 @app.route('/tasks', methods =['DELETE'])
 def delete_task():
     data = request.get_json()

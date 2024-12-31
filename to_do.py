@@ -1,5 +1,5 @@
 import sqlite3
-
+#----INITIALIZE THE DATABASE---#
 db_name = 'tasks.db'
 def initialize_db():
     with sqlite3.connect(db_name) as conn:
@@ -9,7 +9,7 @@ def initialize_db():
 
 
 
-
+#---RECEIVE THE LIST OF TASKS FROM THE DATABASE---#
 def getList():
     with sqlite3.connect(db_name) as conn:
         cursor = conn.cursor()
@@ -17,7 +17,7 @@ def getList():
         rows = cursor.fetchall()
         return [{"id": row[0], "name": row[1]} for row in rows]
 
-
+#---ADD TASK TO THE LIST OF TASKS---#
 def addtoList(name: str):
     with sqlite3.connect(db_name) as conn:
         cursor = conn.cursor()
@@ -25,6 +25,7 @@ def addtoList(name: str):
                        (name,))
         conn.commit()
 
+#---DELETE TASK FROM THE DATABASE---#
 def deletefromList(name: str):
     with sqlite3.connect(db_name) as conn:
         cursor = conn.cursor()
